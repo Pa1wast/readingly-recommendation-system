@@ -19,10 +19,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('books', views.get_books, name='get_books'),
-    path('books/<str:id>/', views.get_book, name='get_book'),
-    path('users', views.get_users, name='get_users'),
-    path('users/<str:id>/', views.get_user, name='get_user'),
+    # Recommender endpoints
+    path('recommend/favourite-genres/<int:user_id>/', views.recommend_by_favourite_genres, name="recommend_by_favourite_genres"),
+    path('recommend/highly-rated/<int:user_id>/', views.recommend_highly_rated, name="recommend_highly_rated"),
+    path('recommend/similar-to-read/<int:user_id>/', views.recommend_similar_to_read, name="recommend_similar_to_read"),
 ]
 
